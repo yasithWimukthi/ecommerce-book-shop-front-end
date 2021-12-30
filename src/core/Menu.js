@@ -1,23 +1,23 @@
 import React, { Fragment } from "react";
-import { Link, withRouter } from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import { signout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
 
-const isActive = (history, path) => {
-    if (history.location.pathname === path) {
+const isActive = (location, path) => {
+    if (location.pathname === path) {
         return { color: "#ff9900" };
     } else {
         return { color: "#ffffff" };
     }
 };
 
-const Menu = ({ history }) => (
+const Menu = ({ location, history }) => (
     <div>
         <ul className="nav nav-tabs bg-primary">
             <li className="nav-item">
                 <Link
                     className="nav-link"
-                    style={isActive(history, "/")}
+                    style={isActive(location, "/")}
                     to="/"
                 >
                     Home
@@ -27,7 +27,7 @@ const Menu = ({ history }) => (
             <li className="nav-item">
                 <Link
                     className="nav-link"
-                    style={isActive(history, "/shop")}
+                    style={isActive(location, "/shop")}
                     to="/shop"
                 >
                     Shop
@@ -37,7 +37,7 @@ const Menu = ({ history }) => (
             <li className="nav-item">
                 <Link
                     className="nav-link"
-                    style={isActive(history, "/cart")}
+                    style={isActive(location, "/cart")}
                     to="/cart"
                 >
                     Cart{" "}
@@ -51,7 +51,7 @@ const Menu = ({ history }) => (
                 <li className="nav-item">
                     <Link
                         className="nav-link"
-                        style={isActive(history, "/user/dashboard")}
+                        style={isActive(location, "/user/dashboard")}
                         to="/user/dashboard"
                     >
                         Dashboard
@@ -63,7 +63,7 @@ const Menu = ({ history }) => (
                 <li className="nav-item">
                     <Link
                         className="nav-link"
-                        style={isActive(history, "/admin/dashboard")}
+                        style={isActive(location, "/admin/dashboard")}
                         to="/admin/dashboard"
                     >
                         Dashboard
@@ -76,7 +76,7 @@ const Menu = ({ history }) => (
                     <li className="nav-item">
                         <Link
                             className="nav-link"
-                            style={isActive(history, "/signin")}
+                            style={isActive(location, "/signin")}
                             to="/signin"
                         >
                             Signin
@@ -86,7 +86,7 @@ const Menu = ({ history }) => (
                     <li className="nav-item">
                         <Link
                             className="nav-link"
-                            style={isActive(history, "/signup")}
+                            style={isActive(location, "/signup")}
                             to="/signup"
                         >
                             Signup
