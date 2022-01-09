@@ -93,8 +93,7 @@ const Shop = () => {
             }
         }
         return array;
-    };
-
+    }
     return (
         <Layout
             title="Shop Page"
